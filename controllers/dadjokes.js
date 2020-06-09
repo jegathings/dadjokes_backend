@@ -12,7 +12,14 @@ router.post('/', async (req, res)=>{
     }
 });
 
-
+router.get('/', async (req, res)=>{
+    try {
+        const dadJokes = await DadJoke.find({});
+        res.status(200).json(dadJokes);
+    } catch(error) {
+        res.status(400).json(error);
+    }
+});
 
 
 module.exports = router;
