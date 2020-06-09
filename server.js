@@ -33,9 +33,12 @@ app.use(cors());
 app.use(express.json());
 
 // CONTROLLERS/ROUTES
-app.get('/', (req, res)=>{
-    res.send('What happened when the cannibal came home late for dinner?...<br/>His wife gave him the cold shoulder') 
-})
+const dadJokesController = require('./controllers/dadjokes.js');
+app.use('/dadjokes', dadJokesController);
+
+// app.get('/', (req, res)=>{
+//     res.send('What happened when the cannibal came home late for dinner?...<br/>His wife gave him the cold shoulder') 
+// })
 
 
 
