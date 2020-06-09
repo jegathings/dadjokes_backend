@@ -21,5 +21,15 @@ router.get('/', async (req, res)=>{
     }
 });
 
+router.delete('/:id', async (req, res)=>{
+    try {
+        const deletedDadJoke = await DadJoke.findByIdAndDelete(req.params.id);
+        res.status(200).json(deletedDadJoke);
+    } catch(errror) {
+        res.status(400).json(error);
+    }
+});
+
+
 
 module.exports = router;
