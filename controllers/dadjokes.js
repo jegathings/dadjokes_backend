@@ -3,7 +3,7 @@ const router = express.Router();
 const DadJoke = require('../models/dadjokes.js');
 
 
-router.post('/', async (req, res)=>{
+router.post('/create', async (req, res)=>{
     try {
         const createDadJoke = await DadJoke.create(req.body);
         res.status(200).json(createDadJoke);
@@ -12,7 +12,7 @@ router.post('/', async (req, res)=>{
     }
 });
 
-router.get('/', async (req, res)=>{
+router.get('/index', async (req, res)=>{
     try {
         const dadJokes = await DadJoke.find({});
         res.status(200).json(dadJokes);
@@ -21,7 +21,7 @@ router.get('/', async (req, res)=>{
     }
 });
 
-router.delete('/:id', async (req, res)=>{
+router.delete('/delete/:id', async (req, res)=>{
     try {
         const deletedDadJoke = await DadJoke.findByIdAndDelete(req.params.id);
         res.status(200).json(deletedDadJoke);
@@ -30,7 +30,7 @@ router.delete('/:id', async (req, res)=>{
     }
 });
 
-router.put('/:id', async (req, res)=>{
+router.put('/update/:id', async (req, res)=>{
     try {
         const updatedDadJoke = await DadJoke.findByIdAndUpdate(
             req.params.id,

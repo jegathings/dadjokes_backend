@@ -6,9 +6,9 @@ const cors = require('cors');
 
 //GLOBALS
 const PORT = process.env.PORT || 3000;
-const MONGOURL = process.env.MONGODB_URL || 'mongodb://localhost:27017/dadjokes';
+const MONGOURL = process.env.MONGODB_URI || 'mongodb://localhost:27017/dadjokes';
 const whitelist = [
-    'http://localhost:1985'
+    'http://localhost:3001'
 ];
 const corsOptions = {
     origin: function (origin, callback) {
@@ -29,7 +29,7 @@ mongoose.connect(MONGOURL, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', () => console.log('connected to mongoose...'));
 
 // MIDDLEWARE
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // CONTROLLERS/ROUTES
