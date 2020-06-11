@@ -8,7 +8,8 @@ const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 const MONGOURL = process.env.MONGODB_URI || 'mongodb://localhost:27017/dadjokes';
 const whitelist = [
-    'http://localhost:3001'
+    'http://localhost:3001',
+    'https://quirky-knuth-bf45cb.netlify.app'
 ];
 const corsOptions = {
     origin: function (origin, callback) {
@@ -29,7 +30,7 @@ mongoose.connect(MONGOURL, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', () => console.log('connected to mongoose...'));
 
 // MIDDLEWARE
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // CONTROLLERS/ROUTES
