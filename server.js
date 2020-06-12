@@ -30,7 +30,7 @@ mongoose.connect(MONGOURL, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', () => console.log('connected to mongoose...'));
 
 // MIDDLEWARE
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 // CONTROLLERS/ROUTES
