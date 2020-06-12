@@ -4,7 +4,7 @@ const dadJokeSchema = Schema({
     setup: {type: String, required: true, unique: true},
     punchline: {type: String, required: true, unique: true}
 });
-dadJokeSchema.index( {'setup' : 1, 'punchline' : 1 }, {unique : true });
+dadJokeSchema.index( {'setup' : 1, 'punchline': 1 }, {unique : true });
 
 const DadJoke = model('dadjoke', dadJokeSchema);
 
