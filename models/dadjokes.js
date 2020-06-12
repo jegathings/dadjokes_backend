@@ -1,9 +1,10 @@
 const { Schema, model } = require('mongoose');
 
 const dadJokeSchema = Schema({
-    joke: {type: String, required: true, unique: true}
+    setup: {type: String, required: true, unique: true},
+    punchline: {type: String, required: true, unique: true}
 });
-dadJokeSchema.index( {'joke' : 1 }, {unique : true });
+dadJokeSchema.index( {'setup' : 1, 'punchline': 1 }, {unique : true });
 
 const DadJoke = model('dadjoke', dadJokeSchema);
 
